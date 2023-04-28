@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div style="padding-left: 20px;padding-right: 20px">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/index">AccountInfo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/transactions">Transactions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/rule1">Rule1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/rule2">Rule2</a>
+            </li>
+        </ul>
+    </nav>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">accountNumber</th>
+            <th scope="col">transactionDatetime</th>
+            <th scope="col">transactionAmount</th>
+            <th scope="col">postDate</th>
+            <th scope="col">merchantNumber</th>
+            <th scope="col">merchantDescription</th>
+            <th scope="col">merchantCategoryCode</th>
+            <th scope="col">transactionNumber</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="one:${list}">
+            <td th:text="${one.getAccountNumber()}"></td>
+            <td th:text="${one.getTransactionDatetime()}"></td>
+            <td th:text="${one.getTransactionAmount()}"></td>
+            <td th:text="${one.getPostDate()}"></td>
+            <td th:text="${one.getMerchantNumber()}"></td>
+            <td th:text="${one.getMerchantDescription()}"></td>
+            <td th:text="${one.getMerchantCategoryCode()}"></td>
+            <td th:text="${one.getTransactionNumber()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
