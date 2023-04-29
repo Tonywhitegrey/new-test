@@ -95,7 +95,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
                 });
             }
         });
-        // 返回给前端
+        // return data list
         return list;
     }
 
@@ -179,24 +179,24 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     @SneakyThrows
     @Override
     public String rule2ExportList() {
-        // 调用规则2列表拿到数据
+        // Call Rule 1 List to Obtain Data
         List<Rule2VO> voList = rule2List();
-        // 导出文件存储路径和文件名
+        // Export file storage path and file name
         String exportPath = "rule2.txt";
-        // 实例化FileWriter
+        // Instantiating FileWriter
         FileWriter fw = new FileWriter(exportPath);
-        // 实例化BufferedWriter
+        // Instantiating BufferedWriter
         BufferedWriter bw = new BufferedWriter(fw);
-        // 先写入头文件，并换行
+        // Write the header file first and wrap it
         bw.write(voList.get(0).getHeader() + System.lineSeparator());
-        // 循环列表写入VO
+        // Loop List Write VO
         for (Rule2VO vo : voList) {
-            // 将每个VO转换为字符串，并加上回车换行符
+            // Convert each VO into a string and add a carriage return and line feed character
             bw.write(vo.toString() + System.lineSeparator());
         }
         bw.close();
         fw.close();
-        // 返回文件地址
+        // Return filePath
         return exportPath;
     }
 }

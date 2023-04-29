@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class OutlierDetector {
     /**
-     * 使用KNN方法检测离群点
+     * Using KNN method to detect outliers
      *
      * @param data       data
      * @param k          K-value, used to determine the number of neighbor data
