@@ -12,10 +12,10 @@ public class OutlierDetector {
     /**
      * 使用KNN方法检测离群点
      *
-     * @param data       数据
-     * @param k          K值，用于判断邻居数据的个数
-     * @param threshold  阈值，代表邻居数据中到目标数据的距离超过该值则被视为离群点
-     * @return           离群点列表
+     * @param data       data
+     * @param k          K-value, used to determine the number of neighbor data
+     * @param threshold  Threshold, which represents that if the distance from the neighboring data to the target data exceeds this val
+     * @return           Outlier List
      */
     public static List<Double> detectOutliersByKNN(Double[] data, int k, double threshold) {
         List<Double> outliers = new ArrayList<>();

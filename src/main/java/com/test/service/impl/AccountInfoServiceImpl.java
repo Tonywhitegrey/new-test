@@ -46,41 +46,41 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     }
 
     /**
-     * 查询规则1过滤列表
+     * query info through Rule 1
      *
      * @return List<Rule1VO>
      */
     @Override
     public List<Rule1VO> rule1List() {
-        // 实例化输出类
+        // instantiate output list
         List<Rule1VO> list = new ArrayList<>();
-        // 查询所有账户信息
+        // query all account information
         List<AccountInfo> accountInfos = accountInfoMapper.selectAll();
-        // 查询所有交易信息
+        // query all transaction information
         List<Transactions> transactions = transactionsMapper.selectAll();
-        // 将交易信息通过账户中的accountNumber字段分组成map
+        // Divide transaction information into a map through the AccountNumber field in the account
         Map<String, List<Transactions>> collect = transactions.stream().collect(Collectors.groupingBy(Transactions::getAccountNumber));
-        // 循环账户信息
+        // loop through the account info
         accountInfos.forEach(accountInfo -> {
-            // 判断根据accountNumber字段分组成map中是否和账户信息匹配
+            // Determine whether the account number field matches the account information in the composition map
             if (collect.containsKey(accountInfo.getAccountNumber())) {
-                // 拿到账户下的所有交易记录
+                // retrieve all transactions under the account
                 List<Transactions> userTransactions = collect.get(accountInfo.getAccountNumber());
-                // 将账户下的所有交易记录通过merchantDescription字段分组组成新map
+                // divide into new map based on merchantDescription
                 Map<String, List<Transactions>> collect1 = userTransactions.stream().collect(Collectors.groupingBy(Transactions::getMerchantDescription));
-                // 循环分组的新map
+                // loop through new map
                 collect1.forEach((key, value) -> {
-                    // 判断当前相同merchantDescription字段下是否存在2条以上数据
+                    // determine whether there exists more than 2 data points in terms of the same merchantDescription group
                     if (value.size() > 2) {
-                        // 将存在的交易记录中的交易金额拿出来，设置成列表
+                        // list all the current transaction amount
                         List<Double> collect2 = value.stream().map(Transactions::getTransactionAmount).collect(Collectors.toList());
-                        // 计算交易金额的平均数的绝对值，作为KNN的阈值
+                        // calculate the average absolute transaction amount as the threshold of KNN
                         double average = collect2.stream().mapToDouble(Double::doubleValue).average().orElse(Double.NaN);
-                        // 调用KNN计算出异常列表数据
+                        // list all outliers through KNN algorithm
                         List<Transactions> outliers = OutlierDetector.detectOutliersByKNN(value, 1, Math.abs(average));
-                        // 循环异常列表数据
+                        // loop through outliers
                         outliers.forEach(outlier -> {
-                            // 实例化规则1返回类，并组装数据
+                            // instantiate outputs of Rule 1
                             Rule1VO vo = new Rule1VO();
                             vo.setLastName(accountInfo.getLastName());
                             vo.setFirstName(accountInfo.getFirstName());
@@ -88,7 +88,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
                             vo.setTransactionNumber(outlier.getTransactionNumber());
                             vo.setMerchantDescription(outlier.getMerchantDescription());
                             vo.setTransactionAmount(outlier.getTransactionAmount());
-                            // 放入返回列表中
+                            // put into output list
                             list.add(vo);
                         });
                     }

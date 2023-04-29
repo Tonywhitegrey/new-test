@@ -1,0 +1,25 @@
+lastName	firstName	accountNumber	transactionNumber	merchantDescription	transactionAmount
+Dark	Joseph	43991	23	SHOPRITE MONTGOMERY S1 BRIGHTON    MI	-375.5
+Lenna	Paprocki	18393	2	Wal-Mart Store         HOUSTON        AK	-49.97
+Donette	Foller	37466	174	ICE BOX # 4166         HOUSTON        OH	-26.97
+Donette	Foller	37466	33	SQ *FELLINI CAFE HOUST Houston       OH	-12.31
+Mitsue	Tollner	25643	20	CHICK-FIL-A #01284     PEARLAND      IL	-13.82
+Leota	Dilliard	32628	18	TST* THE PIT ROOM      HOUSTON       CA	-34.53
+Sage	Wieser	18054	27	TXTAG 888 468 9824     8884689824    SD	-100.0
+Sage	Wieser	18054	30	BIRYANI POT            HOUSTON       SD	-65.0
+Minna	Amigon	28226	70	APPLE.COM/BILL         866-712-7753  PA	-24.99
+Kiley	Caldarera	19485	23	STEAMGAMES.COM 4259522 Bellevue      CA	-2.88
+Graciela	Ruta	33945	8	GRAND & ESSEX MARKET   BERGENFIELD   OH	-13.66
+Meaghan	Garufi	31452	57	TARGET        00014597 PEARLAND      TN	-200.21
+Yuki	Whobrey	26607	25	TRADER JOE'S #105  QPS ESCONDIDO     MI	-60.42
+Alisha	Slusarski	30881	10	TOM THUMB #1973        UNIVERSITY PA NJ	-21.64
+Francine	Vocelka	20759	27	CENTRAL MARKET #747    DALLAS        NM	-75.06
+Venn	Artie	44891	11	Best Buy		Bridgeport       NJ	-1755.91
+Fuller	Don	53111	23	SHOPRITE MONTGOMERY S1 Hamilton    OH	-375.5
+Karl	Klonowski	25770	69	SAFEWAY #1980          PHOENIX       NJ	-91.33
+Karl	Klonowski	25770	41	TST* KNOCKOUT PIZZA -  CARLSBAD      NJ	-45.5
+Karl	Klonowski	25770	37	SHELL OIL 574418225QPS PHOENIX       NJ	-15.0
+Blondell	Pugh	30808	2	EFT                    Santa Fe       RI	-393.25
+Smith	Michael	11111	15	KROGER #2 4000 POLK    HOUSTON        TX	-2300.0
+Abel	Monica	33555	11	Best Buy		Middle Island       NY	-1755.91
+Doe	John	22222	11	Best Buy		Los Angeles       CA	-1755.91
